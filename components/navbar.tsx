@@ -23,7 +23,7 @@ const Navbar = () => {
                         <NavigationMenuList>
 
                                 <NavigationMenuItem >
-                                    <div className="inline-block font-extrabold text-xl py-2 px-4">
+                                    <div className="inline-block tracking-tighter font-extrabold text-2xl py-2 pr-4">
                                         GSA Blog
                                     </div>
                                 </NavigationMenuItem>
@@ -50,7 +50,7 @@ const Navbar = () => {
                         <ThemeToggle />
                     </div>
                 </div>
-                <Separator className="m-2"/>
+                <Separator className="my-2"/>
             </div>
 
         </>
