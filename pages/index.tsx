@@ -23,7 +23,7 @@ const HomePage = () => {
                 {posts.map(post => (
                     <li key={post.id} className="mb-4">
                         <Link href={`/post/${post.id}`}>
-                            <a className="text-xl font-semibold text-blue-500">{post.title}</a>
+                            {post.title}
                         </Link>
                         <p>{post.summary}</p>
                     </li>
