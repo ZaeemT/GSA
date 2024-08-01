@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { AppProps } from "next/app";
+import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				>
 				<Navbar />
       			<Component {...pageProps} />
+				<Toaster />
 			</ThemeProvider>
 		</main>
     </>
