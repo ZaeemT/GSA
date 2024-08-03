@@ -89,10 +89,6 @@ const SearchBar = () => {
                             ))}
                         </CommandGroup>
                     }
-                    {/*    <CommandSeparator />
-
-                    <CommandGroup heading="Settings">
-                    </CommandGroup>*/}
                 </CommandList>
             </Command>
 
