@@ -68,30 +68,33 @@ const SearchBar = () => {
 
 
     return (
-        <>
-            <Command className='p-1 rounded-lg border shadow-md'>
-                <CommandInput 
-                    placeholder=" Search..."
-                    value={query}
-                    onChangeCapture={handleChange}
-                />
-                <CommandList>
-                    { query && 
-                        <CommandGroup heading="Suggestions">
-                            { (suggestions.length > 0) && suggestions.slice(0, 5).map((suggestion) => (
-                                <Link href={`/post/${suggestion.id}`} key={ suggestion.id }>
-                                    <span>
-                                        <CommandItem style={{cursor:'pointer'}}>
-                                            { suggestion.title }
-                                        </CommandItem>
-                                    </span>
-                                </Link>
-                            ))}
-                        </CommandGroup>
-                    }
-                </CommandList>
-            </Command>
+        <>  
+            <div className='py-3 mx-4'>
 
+                <Command className='p-1 rounded-lg border shadow-md'>
+                    <CommandInput 
+                        placeholder=" Search..."
+                        value={query}
+                        onChangeCapture={handleChange}
+                        />
+                    <CommandList>
+                        { query && 
+                            <CommandGroup heading="Suggestions">
+                                { (suggestions.length > 0) && suggestions.slice(0, 5).map((suggestion) => (
+                                    <Link href={`/post/${suggestion.id}`} key={ suggestion.id }>
+                                        <span>
+                                            <CommandItem style={{cursor:'pointer'}}>
+                                                { suggestion.title }
+                                            </CommandItem>
+                                        </span>
+                                    </Link>
+                                ))}
+                            </CommandGroup>
+                        }
+                    </CommandList>
+                </Command>
+
+            </div>
         </>
     );
 };

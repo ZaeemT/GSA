@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import SearchBar from '@/components/searchbar';
+import BlogCard from '@/components/blogCard';
 
 interface Post {
     id: number;
@@ -23,11 +23,8 @@ const HomePage = () => {
             <SearchBar />
             <ul>
                 {posts.map((post) => (
-                    <li key={post.id} className="mb-4">
-                        <Link href={`/post/${post.id}`}>
-                            {post.title}
-                        </Link>
-                        <p>{post.summary}</p>
+                    <li key={post.id} className="m-4">
+                        <BlogCard prop={post} />
                     </li>
                 ))}
             </ul>
