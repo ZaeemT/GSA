@@ -1,4 +1,5 @@
 
+import BlogDetails from '@/components/blogDetails';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -34,10 +35,9 @@ const PostPage = () => {
     }
 
     return (
-        <div className="container mx-auto p-4">
-            <h1>Blog details</h1>
-            <h1 className="text-2xl font-bold mb-4">{post.title}</h1>
-            <div>{post.content}</div>
+        <div className="container mx-auto p-4 mx-auto w-full max-w-2xl">
+            <h1 className='text-2xl font-bold mb-4 tracking-tighter'>Blog details</h1>
+            <BlogDetails prop={post} />
         </div>
     );
 };
