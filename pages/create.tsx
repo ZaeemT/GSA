@@ -78,7 +78,7 @@ const CreatePostPage = () => {
         <div className="container mx-auto p-4 mx-auto w-full max-w-2xl">
             <h1 className="text-2xl font-bold mb-4 tracking-tighter">Create a New Post</h1>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-md m-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-lg m-4">
                     <FormField
                     control={form.control}
                     name="title"
@@ -90,7 +90,7 @@ const CreatePostPage = () => {
                                     type="text"
                                     id="title"
                                     placeholder='Type title of your blog here'
-                                    className="w-full p-2 border border-gray-300 rounded"
+                                    className="w-full p-2 border shadow-md bg-secondary rounded-lg"
                                     {...field}
                                 />
                             </FormControl>
@@ -109,7 +109,7 @@ const CreatePostPage = () => {
                                 <Textarea
                                     id="summary"
                                     placeholder='Type summary of your blog here'
-                                    className="w-full p-2 border border-gray-300 rounded"
+                                    className="w-full p-2 border shadow-md bg-secondary rounded-lg"
                                     {...field}
                                 />
                             </FormControl>
@@ -128,7 +128,7 @@ const CreatePostPage = () => {
                                 <Textarea
                                     id="content"
                                     placeholder='Type content of your blog here'
-                                    className="w-full p-2 border border-gray-300 rounded"
+                                    className="w-full p-2 border shadow-md bg-secondary rounded-lg"
                                     {...field}
                                 />
                             </FormControl>
