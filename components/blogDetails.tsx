@@ -5,12 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-
-interface Post {
-    id: number;
-    title: string;
-    content: string;
-}
+import { Post } from "@/hooks/useFetch";
 
 interface PostItemProps {
     prop: Post;
