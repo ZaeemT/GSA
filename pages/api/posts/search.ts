@@ -10,12 +10,12 @@ export default function handler(
     const { query } = req.query;
 
     if (!query) {
-        return res.status(400).json({ error: 'Query parameter is required' });
+        return res.status(200).json({ message: 'Query parameter is required' });
     }
 
     db.all(
-        'SELECT id, title, summary FROM posts WHERE title LIKE ? OR summary LIKE ? LIMIT 5',
-        [`%${query}%`, `%${query}%`],
+        'SELECT id, title, summary FROM posts WHERE title LIKE ? LIMIT 5',
+        [`%${query}%`],
         (err, rows) => {
             if (err) {
                 res.status(500).json({ error: 'Database error' });

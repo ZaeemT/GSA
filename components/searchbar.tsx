@@ -2,17 +2,12 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import Link from 'next/link';
 import {
     Command,
-    CommandDialog,
     CommandEmpty,
     CommandGroup,
     CommandInput,
     CommandItem,
     CommandList,
-    CommandSeparator,
-    CommandShortcut,
 } from "@/components/ui/command";
-import { TextCursor } from 'lucide-react';
-import { cursorTo } from 'readline';
   
 
 interface Post {
@@ -34,8 +29,8 @@ const SearchBar = () => {
 
                 const response = await fetch(`/api/posts/search?query=${query}`);
                 if (!response.ok) {
-                    //throw new Error(`Error: ${response.statusText}`);
-                    console.error('response not ok')
+                    throw new Error(`Error: ${response.statusText}`);
+                    //console.error('response not ok')
                 }
                 const data = await response.json();
                 console.log(data);  // Checking the data we are getting
@@ -77,10 +72,14 @@ const SearchBar = () => {
                         value={query}
                         onChangeCapture={handleChange}
                         />
+
                     <CommandList>
-                        { query && 
+                        { query && (suggestions.length < 1) && <CommandEmpty>No results found.</CommandEmpty> }
+                        { (query) &&
+
                             <CommandGroup heading="Suggestions">
-                                { (suggestions.length > 0) && suggestions.slice(0, 5).map((suggestion) => (
+                                
+                                { (suggestions.length > 0) && (suggestions.slice(0, 5).map((suggestion) => (
                                     <Link href={`/post/${suggestion.id}`} key={ suggestion.id }>
                                         <span>
                                             <CommandItem style={{cursor:'pointer'}}>
@@ -88,7 +87,7 @@ const SearchBar = () => {
                                             </CommandItem>
                                         </span>
                                     </Link>
-                                ))}
+                                ))) }
                             </CommandGroup>
                         }
                     </CommandList>

@@ -11,10 +11,21 @@ interface Post {
 const HomePage = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
+
     useEffect(() => {
+        
+        
         fetch('/api/posts')
-            .then(response => response.json())
-            .then(data => setPosts(data));
+            .then(response => {
+                if (!response.ok) {
+                    throw Error('Could not fetch data for that resource.')
+                }                
+                return response.json()
+            })
+            .then(data => {
+                setPosts(data);
+            });
+
     }, []);
 
     return (
