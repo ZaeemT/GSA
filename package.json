@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node db.js && next dev",
     "build": "node db.js && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "vitest"
+    "start": "node db.js && next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

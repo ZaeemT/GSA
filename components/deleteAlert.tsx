@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -17,11 +16,11 @@ import { useToast } from "@/components/ui/use-toast";
 
 interface PostItemProps {
     prop: number;
+    onDelete: (id: number) => void; // Callback to handle deletion
 }
 
-const DeleteAlert = ({prop}: PostItemProps) => {
+const DeleteAlert = ({prop, onDelete}: PostItemProps) => {
     const [isDeleting, setIsDeleting] = useState(false);
-    const router = useRouter();
     const { toast } = useToast()
 
 
@@ -33,13 +32,11 @@ const DeleteAlert = ({prop}: PostItemProps) => {
             });
 
             if (response.ok) {
-                // onDelete(prop.id); // Notify parent component
+                onDelete(prop); // Notify parent component
                 toast({
                     variant: "default",
                     description: "Post Deleted Successfully",
-                })
-                router.push('/')
-                
+                })                
                 console.log('Post deleted successfully');
             } else {
                 const data = await response.json();

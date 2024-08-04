@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+import { useRouter } from 'next/navigation';
 import {
     Card,
     CardDescription,
@@ -15,6 +15,12 @@ interface PostItemProps {
 }
 
 const BlogCard = ({ prop }: PostItemProps) => {
+    const router = useRouter()
+
+    const handleDelete = (id: number) => {
+        router.refresh()
+    }
+
     return(
         <>
             <Card className="grid grid-cols-4 gap-4 items-center bg-secondary text-primary shadow-md">
@@ -30,7 +36,7 @@ const BlogCard = ({ prop }: PostItemProps) => {
 
                 <div className="p-6 justify-self-end">
                     
-                    <DeleteAlert prop={prop.id}/>
+                    <DeleteAlert prop={prop.id} onDelete={handleDelete}/>
                 </div>
             </Card>
         </>

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import {
     Card,
     CardContent,
@@ -13,6 +14,12 @@ interface PostItemProps {
 }
 
 const BlogDetails = ({ prop }: PostItemProps) => {
+    const router = useRouter();
+
+    const handleDelete = (id: number) => {
+        router.push('/')
+    }
+
     return(
         <>
             <div className="p-4">
@@ -24,7 +31,7 @@ const BlogDetails = ({ prop }: PostItemProps) => {
                         <p>{ prop.content}</p>
                     </CardContent>
                     <CardFooter>
-                        <DeleteAlert prop={prop.id} />
+                        <DeleteAlert prop={prop.id} onDelete={handleDelete}/>
                     </CardFooter>
                 </Card>
             </div>
