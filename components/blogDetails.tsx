@@ -6,6 +6,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Post } from "@/hooks/useFetch";
+import DeleteAlert from "./deleteAlert";
 
 interface PostItemProps {
     prop: Post;
@@ -23,7 +24,7 @@ const BlogDetails = ({ prop }: PostItemProps) => {
                         <p>{ prop.content}</p>
                     </CardContent>
                     <CardFooter>
-                        <p>Card Footer</p>
+                        <DeleteAlert prop={prop.id} />
                     </CardFooter>
                 </Card>
             </div>

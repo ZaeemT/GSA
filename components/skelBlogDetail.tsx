@@ -18,7 +18,7 @@ const BlogDetailSkeleton = () => {
                         <Skeleton className="h-4 w-[250px] bg-foreground" />
                     </CardContent>
                     <CardFooter>
-                    <Skeleton className="h-4 w-[100px] bg-foreground" />
+                    <Skeleton className="h-6 w-[100px] bg-foreground" />
                     </CardFooter>
                 </Card>
             </div>

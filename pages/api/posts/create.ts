@@ -1,4 +1,3 @@
-// pages/api/posts/create.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import sqlite3 from 'sqlite3';
 
