@@ -3,12 +3,6 @@ import sqlite3 from 'sqlite3';
 
 const db = new sqlite3.Database('./blog.db');
 
-type Post ={
-	id: number;
-    title: string;
-    summary: string;
-}
-
 export default function handler(
 	req: NextApiRequest,
 	res: NextApiResponse, ) {

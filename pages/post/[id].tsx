@@ -10,8 +10,6 @@ const PostPage = () => {
     const { id } = router.query;
     const {data: post, isPending, error} = useFetch(`/api/posts/${id}`)
 
-   
-
     return (
         <div className="container mx-auto p-4 mx-auto w-full max-w-2xl">
             <h1 className='text-2xl font-bold mb-4 tracking-tighter'>Blog details</h1>

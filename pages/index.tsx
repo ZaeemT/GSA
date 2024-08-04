@@ -1,12 +1,9 @@
 import SearchBar from '@/components/searchbar';
 import BlogCard from '@/components/blogCard';
-import BlogCardSkeleton from '@/components/skelBlogCard';
 import useFetch from '@/hooks/useFetch';
-
 
 const HomePage = () => {
     const {data: posts, isPending, error} = useFetch('/api/posts')
-
 
     return (
         <div className="container mx-auto p-4 mx-auto w-full max-w-2xl space-y-1">

@@ -1,20 +1,12 @@
-import * as React from "react"
 import Link from "next/link"
 
 import {
     Card,
-    CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
-
-interface Post {
-    id: number;
-    title: string;
-    summary: string;
-}
+} from "@/components/ui/card";
+import { Post } from "@/hooks/useFetch";
 
 interface PostItemProps {
     prop: Post;

@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -12,7 +9,6 @@ import { useToast } from "@/components/ui/use-toast";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -37,10 +33,6 @@ const FormSchema = z.object({
 
 
 const CreatePostPage = () => {
-
-    const [title, setTitle] = useState('');
-    const [summary, setSummary] = useState('');
-    const [content, setContent] = useState('');
     const { toast } = useToast()
     const router = useRouter();
 
@@ -72,8 +64,6 @@ const CreatePostPage = () => {
         }
     }
 
-    
-
     return (
         <div className="container mx-auto p-4 mx-auto w-full max-w-2xl">
             <h1 className="text-2xl font-bold mb-4 tracking-tighter">Create a New Post</h1>
@@ -94,7 +84,6 @@ const CreatePostPage = () => {
                                     {...field}
                                 />
                             </FormControl>
-                            
                             <FormMessage />
                         </FormItem>
                     )}
@@ -113,7 +102,6 @@ const CreatePostPage = () => {
                                     {...field}
                                 />
                             </FormControl>
-                            
                             <FormMessage />
                         </FormItem>
                     )}
@@ -132,7 +120,6 @@ const CreatePostPage = () => {
                                     {...field}
                                 />
                             </FormControl>
-                            
                             <FormMessage />
                         </FormItem>
                     )}

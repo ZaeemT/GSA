@@ -8,19 +8,13 @@ import {
     CommandItem,
     CommandList,
 } from "@/components/ui/command";
-  
-
-interface Post {
-    id: number;
-    title: string;
-    summary: string;
-}
+import { Post } from '@/hooks/useFetch';
 
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState<Post[]>([]);
-
+    
 
     useEffect(() => {
 
@@ -30,7 +24,6 @@ const SearchBar = () => {
                 const response = await fetch(`/api/posts/search?query=${query}`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
-                    //console.error('response not ok')
                 }
                 const data = await response.json();
                 console.log(data);  // Checking the data we are getting
@@ -65,19 +58,16 @@ const SearchBar = () => {
     return (
         <>  
             <div className='py-3 mx-4'>
-
                 <Command className='p-1 rounded-lg border shadow-md'>
                     <CommandInput 
                         placeholder=" Search..."
                         value={query}
                         onChangeCapture={handleChange}
-                        />
-
+                    />
                     <CommandList>
                         { query && (suggestions.length < 1) && <CommandEmpty>No results found.</CommandEmpty> }
-                        { (query) &&
-
-                            <CommandGroup heading="Suggestions">
+                        { query &&
+                            (<CommandGroup heading="Suggestions">
                                 
                                 { (suggestions.length > 0) && (suggestions.slice(0, 5).map((suggestion) => (
                                     <Link href={`/post/${suggestion.id}`} key={ suggestion.id }>
@@ -88,11 +78,10 @@ const SearchBar = () => {
                                         </span>
                                     </Link>
                                 ))) }
-                            </CommandGroup>
+                            </CommandGroup>)
                         }
                     </CommandList>
                 </Command>
-
             </div>
         </>
     );

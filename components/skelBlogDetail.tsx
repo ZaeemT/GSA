@@ -1,5 +1,4 @@
 import { Skeleton } from "@/components/ui/skeleton";
-
 import {
     Card,
     CardContent,
@@ -23,7 +22,6 @@ const BlogDetailSkeleton = () => {
                     </CardFooter>
                 </Card>
             </div>
-
         </>
     )
 }
